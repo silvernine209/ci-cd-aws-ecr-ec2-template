@@ -1,0 +1,17 @@
+
+# patches
+# Each entry in this list should resolve to
+# a partial or complete resource definition file.
+namespace: qa-REPLACE_ME_APP_NAME
+images:
+- name: REPLACE_ME_APP_NAME
+  newName: REPLACE_ME_AWS_ACCOUNT_ID.dkr.ecr.REPLACE_ME_AWS_REGION.amazonaws.com/REPLACE_ME_APP_NAME
+  newTag: 7ec35fd3b2c8264f13bc0eda2fc756cefa831aad
+patchesStrategicMerge:
+- patch-env-from.yaml
+- patch-dep-from.yaml
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+resources:
+- ../../base
+- external-secret.yaml

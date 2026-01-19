@@ -1,0 +1,39 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: REPLACE_ME_APP_NAME
+  labels:
+    app.kubernetes.io/name: REPLACE_ME_APP_NAME
+spec:
+  replicas: 1
+  revisionHistoryLimit: 2
+  selector:
+    matchLabels:
+      app.kubernetes.io/name: REPLACE_ME_APP_NAME
+  template:
+    metadata:
+      labels:
+        app.kubernetes.io/name: REPLACE_ME_APP_NAME
+    spec:
+      containers:
+        - name: REPLACE_ME_APP_NAME
+          image: REPLACE_ME_APP_NAME  # Ensure this is the correct image
+          readinessProbe:
+            httpGet:
+              path: /
+              port: REPLACE_ME_PORT
+            initialDelaySeconds: 5
+            periodSeconds: 5
+            failureThreshold: 50
+          envFrom:
+            - secretRef:
+                name: REPLACE_ME_APP_NAME-secrets
+          ports:
+            - containerPort: REPLACE_ME_PORT  # Python app port
+          resources:
+            limits:
+              cpu: '250m'
+              memory: 512Mi
+            requests:
+              cpu: '250m'
+              memory: 512Mi            
