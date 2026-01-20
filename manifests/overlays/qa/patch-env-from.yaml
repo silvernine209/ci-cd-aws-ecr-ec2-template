@@ -4,7 +4,7 @@ metadata:
   name: REPLACE_ME_APP_NAME
 spec:
   rules:
-    - host: api-v2.qa.REPLACE_ME_APP_NAME.com
+    - host: api.qa.REPLACE_ME_APP_NAME.com
       http:
         paths:
           - backend:
@@ -16,5 +16,5 @@ spec:
             pathType: ImplementationSpecific
   tls:
     - hosts:
-      - api-v2.qa.REPLACE_ME_APP_NAME.com
-      secretName: api-v2.qa.REPLACE_ME_APP_NAME.com
+      - api.qa.REPLACE_ME_APP_NAME.com
+      secretName: api.qa.REPLACE_ME_APP_NAME.com
